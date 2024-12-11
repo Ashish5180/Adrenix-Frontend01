@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       { path: 'Store', element: <Store /> },
       { path: 'Signup', element: <Signup/> },
       { path: 'Signin', element: <Signin /> },
-      { path: 'cart', element: <Cart /> },
+      { path: 'cart', element: <Protected><Cart /></Protected> },
       { path: 'owner', 
         element: <AdminDashboard />, 
       children:[
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
 
 
       { path: 'dashboard',
-         element: <Dashboard/>,
+         element: <Protected><Dashboard/></Protected>,
         children: [
           { path: 'Account', element: <Account/> },
           { path: 'Address', element: <Address/> },
