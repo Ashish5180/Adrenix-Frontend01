@@ -17,7 +17,7 @@ const UserOrders = ({ userId }) => {
             const userid = JSON.parse(localStorage.getItem("user"));
             const userId = userid.user.id;
             try {
-                const response = await axios.get(`http://localhost:5000/api/orders/${userId}`);
+                const response = await axios.get(`https://adrenix-backend-production.up.railway.app/api/orders/${userId}`);
                 setOrders(response.data);
             } catch (err) {
                 setError('Failed to fetch orders');
@@ -34,7 +34,7 @@ const UserOrders = ({ userId }) => {
     // Cancel order functionality
     const handleCancelOrder = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/orders/${selectedOrderId}/cancel`);
+            await axios.put(`https://adrenix-backend-production.up.railway.app/api/orders/${selectedOrderId}/cancel`);
             setOrders(prevOrders => 
                 prevOrders.map(order => 
                     order._id === selectedOrderId ? { ...order, status: 'Cancelled' } : order
