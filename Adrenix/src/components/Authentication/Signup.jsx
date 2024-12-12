@@ -61,7 +61,6 @@ const Signup = () => {
       localStorage.setItem('user', JSON.stringify(userData));// Setting user to Local Storage
 
 
-      window.location.reload();// Page Reload 
 
 
       // Redirect after a successful signup

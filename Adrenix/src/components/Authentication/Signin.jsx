@@ -72,7 +72,7 @@ const Signin = () => {
       localStorage.setItem('user', JSON.stringify(userData)); // Setting user to Local Storage
 
       setSuccess('Account logged in successfully!');
-      window.location.reload(); // Reload state
+     
 
       // Redirect after successful OTP verification
       setTimeout(() => {

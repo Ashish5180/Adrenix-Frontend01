@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
-
 // Main user orders
 const UserOrders = ({ userId }) => {
     const [orders, setOrders] = useState([]);
@@ -29,8 +28,6 @@ const UserOrders = ({ userId }) => {
         fetchOrders(); // Fetch orders on component mount
     }, [userId]);
 
-
-
     // Cancel order functionality
     const handleCancelOrder = async () => {
         try {
@@ -47,7 +44,6 @@ const UserOrders = ({ userId }) => {
         }
     };
 
-
     // Return and Replace functionality
     const handleReturnAndReplace = async (orderId) => {
         try {
@@ -61,7 +57,6 @@ const UserOrders = ({ userId }) => {
             console.error('Failed to initiate return', err);
         }
     };
-
 
     // Loading state
     if (loading) return <p className="text-center mt-4">Loading...</p>;
@@ -107,7 +102,7 @@ const UserOrders = ({ userId }) => {
                                             <span className="inline-block px-4 py-2 text-white text-lg font-semibold bg-green-500 rounded-full">Order Status : {order.status}</span>
                                             <p className="text-green-600 font-semibold mt-2">Delivered within 2-3 working days. Thank you for shopping!</p>
                                     </div>
-                                    <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 mt-4">
+                                    <div className="flex flex-col sm:flex-row gap-4 mt-4">
                                         <button 
                                             className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300 w-full sm:w-auto"
                                             onClick={() => {
@@ -139,7 +134,7 @@ const UserOrders = ({ userId }) => {
                         <h3 className="text-xl font-semibold mb-4">Confirm Cancellation</h3>
                         <p>Are you sure you want to cancel this order?</p>
                         {cancelError && <p className="text-red-600 mt-2">{cancelError}</p>}
-                        <div className="flex justify-between mt-4">
+                        <div className="flex flex-col sm:flex-row gap-4 mt-4">
                             <button 
                                 className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 w-full sm:w-auto"
                                 onClick={handleCancelOrder}
